@@ -1,7 +1,7 @@
 name: Auto-commit
 on:
   schedule:
-    - cron: '50 23 * * *'
+    - cron: '59 23 * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,6 +17,6 @@ jobs:
       - name: Commit
         run: |
           git add -A
-          git commit -m "$(date +'%Y-%m-%d')"
+          git diff --quiet && git diff --staged --quiet || (git commit -m "$(date +'%Y-%m-%d')の学習" || true)
           git push
 
