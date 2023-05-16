@@ -18,5 +18,4 @@ jobs:
         run: |
           git add -A
           git diff --quiet && git diff --staged --quiet || (git commit -m "$(date +'%Y-%m-%d')の学習" || true)
-          git push
-
+          git push -u origin main
